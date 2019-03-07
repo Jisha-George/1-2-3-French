@@ -9,89 +9,77 @@
 
     <ImageButton
         android:id="@+id/learnCol"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="147dp"
+        android:layout_height="149dp"
         android:layout_alignParentTop="true"
-
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
+
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/colour_theory"
         android:onClick="loadColour"
-        app:layout_constraintBottom_toTopOf="@+id/learnNum"
-        app:layout_constraintEnd_toStartOf="@+id/colDes"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/colDes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74"
-        app:srcCompat="@drawable/ic_launcher_round"
+        app:layout_constraintVertical_bias="0.836"
         tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/colDes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="65dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="
-Learn the french words for colours.
-Pictures of the colours will appear with the translations."
-        android:textAlignment="viewStart"
-        android:textSize="16sp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/rounded"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/numDes"
+        android:text="  Learn Colours  "
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/learnNum"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/learnCol"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learnCol" />
 
     <ImageButton
         android:id="@+id/learnNum"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="135dp"
+        android:layout_height="137dp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/learnCol"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-
-        android:layout_marginTop="64dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/num"
         android:onClick="loadNumber"
-        app:layout_constraintBottom_toTopOf="@+id/botMenu"
-        app:layout_constraintEnd_toStartOf="@+id/numDes"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/numDes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/learnCol"
-        app:srcCompat="@drawable/num_round"
+        app:layout_constraintTop_toBottomOf="@+id/colDes"
+        app:layout_constraintVertical_bias="0.863"
         tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/numDes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:textAlignment="viewStart"
-        android:text="
-Learn the French numbers.
-Pictures of numbers will be displayed along with the French word for the number"
-        android:textSize="16sp"
+        android:background="@drawable/rounded"
         android:gravity="center"
+        android:text="  Learn Numbers  "
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/botMenu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/learnNum"
-        app:layout_constraintTop_toBottomOf="@+id/colDes" />
-
-
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RelativeLayout
         android:id="@+id/botMenu"
