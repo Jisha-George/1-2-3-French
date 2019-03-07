@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <ImageButton
+        android:id="@+id/learnCol"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorPrimary"
+        android:onClick="loadColour"
+        app:layout_constraintBottom_toTopOf="@+id/learnNum"
+        app:layout_constraintEnd_toStartOf="@+id/colDes"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74"
+        app:srcCompat="@drawable/ic_launcher_round"
+        tools:ignore="OnClick" />
+
+    <TextView
+        android:id="@+id/colDes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:text="
+Learn the french words for colours.
+Pictures of the colours will appear with the translations."
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/numDes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/learnCol"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.185" />
+
+    <ImageButton
+        android:id="@+id/learnNum"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/learnCol"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="64dp"
+        android:background="@color/colorPrimary"
+        android:onClick="loadNumber"
+        app:layout_constraintBottom_toTopOf="@+id/botMenu"
+        app:layout_constraintEnd_toStartOf="@+id/numDes"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learnCol"
+        app:srcCompat="@drawable/num_round"
+        tools:ignore="OnClick" />
+
+    <TextView
+        android:id="@+id/numDes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textAlignment="viewStart"
+        android:text="
+Learn the French numbers.
+Pictures of numbers will be displayed along with the French word for the number"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/botMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/learnNum"
+        app:layout_constraintTop_toBottomOf="@+id/colDes" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/botMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottomNavigation_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/navigation_menu" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
+
+<!--
+
+   <ImageButton
+        android:id="@+id/learnVocab"
+        android:layout_width="114dp"
+        android:layout_height="105dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/learnCol"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="loadVocab"
+        app:layout_constraintBottom_toTopOf="@+id/learnPhrases"
+        app:layout_constraintEnd_toStartOf="@+id/vocabDes"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learnNum"
+        app:srcCompat="@drawable/learn"
+        tools:ignore="OnClick" />
+
+    <TextView
+        android:id="@+id/vocabDes"
+        android:layout_width="220dp"
+        android:layout_height="104dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="
+Learn the basic french words.
+Common translations such as animals and fruits."
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/phrasesDes"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/learnPhrases"
+        android:layout_width="114dp"
+        android:layout_height="105dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="loadPhrases"
+        app:layout_constraintBottom_toTopOf="@+id/botMenu"
+        app:layout_constraintEnd_toStartOf="@+id/phrasesDes"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learnVocab"
+        app:srcCompat="@drawable/learn"
+        tools:ignore="OnClick" />
+
+    <TextView
+        android:id="@+id/phrasesDes"
+        android:layout_width="220dp"
+        android:layout_height="104dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="
+Learn common phrases.
+This is better for learning sentences!
+Involves sound clips."
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/botMenu"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+-->

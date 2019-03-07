@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.a13488071.a1_2_3_french">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="1-2-3-French"
+        android:roundIcon="@drawable/background"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ColourQuiz"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".QuizPage"
+            android:label="@string/title_activity_quiz_page"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatsPage"
+            android:label="@string/title_activity_stats_page"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ColourLearn"
+            android:label="@string/colour"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".NumberQuiz"
+            android:label="NumberQuiz"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ColourM" />
+
+    </application>
+
+</manifest>
