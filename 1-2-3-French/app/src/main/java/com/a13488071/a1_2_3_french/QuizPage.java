@@ -28,11 +28,11 @@ public class QuizPage extends AppCompatActivity {
         cmQuiz = findViewById(R.id.cmBut);
 
         progC = findViewById(R.id.cProg);
-        //progC.setMax(NumberQuiz.getMaxscore());
+        progC.setMax(ColourQuiz.getMaxscore());
         progC.setProgress(0);
 
         progN = findViewById(R.id.nProg);
-        progN.setMax(ColourQuiz.getMaxscore());
+        progN.setMax(NumberQuiz.getMaxscore());
         progN.setProgress(0);
 
         progCM = findViewById(R.id.cmProg);
@@ -74,12 +74,12 @@ public class QuizPage extends AppCompatActivity {
             cQuiz.setEnabled(false);
         }
 
-       // progN.setProgress(NumberQuiz.getScore());
+        progN.setProgress(NumberQuiz.getScore());
 
-//        if(progN.getProgress() == progN.getMax())
-//        {
-//            nQuiz.setEnabled(false);
-//        }
+        if(progN.getProgress() == progN.getMax())
+        {
+            nQuiz.setEnabled(false);
+        }
 
       //  progCM.setProgress(ColourM.getScore());
 
@@ -98,17 +98,17 @@ public class QuizPage extends AppCompatActivity {
     }
     public void loadNQuiz(View view)
     {
-        Intent intent = new Intent(this, NumberQuiz.class);
-        startActivity(intent);
+        Intent intent1 = new Intent(this, NumberQuiz.class);
+        startActivity(intent1);
     }
     public void loadCM(View view)
     {
-        Intent intent = new Intent(this, ColourM.class);
-        startActivity(intent);
+        Intent intent2 = new Intent(this, ColourM.class);
+        startActivity(intent2);
     }
     public void loadNM(View view)
     {
-        Intent intent = new Intent(this, ColourM.class);
-        startActivity(intent);
+        Intent intent3 = new Intent(this, ColourM.class);
+        startActivity(intent3);
     }
 }

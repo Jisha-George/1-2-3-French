@@ -1,5 +1,8 @@
 package com.a13488071.a1_2_3_french;
 
+//https://www.youtube.com/watch?v=3gSIJTHiAvI&list=PLaoF-xhnnrRU7DSfUMP8PGWJf-1UYBQZv&index=1
+//https://stackoverflow.com/questions/40938426/progress-bar-on-correct-answers
+
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -20,18 +23,18 @@ import java.util.Random;
 public class ColourQuiz extends AppCompatActivity {
 
     private int pressCounter = 0;
+    //private int maxPressCounter = 3;
     private String[] keys = {"E", "L", "R", "B", "D", "U"};
     String answer = "RED";
     TextView textQuestion;
     public static int score = 0;
     public static int maxscore = 5;
     Button check, reset;
-    private String TAG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_number_quiz);
+        setContentView(R.layout.activity_colour_quiz);
 
         check = findViewById(R.id.check);
         reset = findViewById(R.id.reset);
@@ -65,6 +68,7 @@ public class ColourQuiz extends AppCompatActivity {
                         startActivity(intent2);
                         break;
                 }
+
                 return false;
             }
         });
@@ -72,8 +76,7 @@ public class ColourQuiz extends AppCompatActivity {
 
     private String[] shuffleArray(String[] ar) {
         Random rnd = new Random();
-        for (int i = ar.length -1; i>0; i--)
-        {
+        for (int i = ar.length - 1; i > 0; i--) {
             int index = rnd.nextInt(i + 1);
             String a = ar[index];
             ar[index] = ar[i];
@@ -104,13 +107,13 @@ public class ColourQuiz extends AppCompatActivity {
         letters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pressCounter <= 7){
+                if (pressCounter <= 7) {
                     editText.setText(editText.getText().toString().concat(letters.getText().toString()));
                     letters.setVisibility(View.INVISIBLE);
 
                     pressCounter++;
 
-                    if(pressCounter == 0) {
+                    if (pressCounter == 0) {
                         editText.setText("");
                     }
 
@@ -118,6 +121,46 @@ public class ColourQuiz extends AppCompatActivity {
                 }
             }
         });
+        // final TextView lnew = new TextView(this);
+
+//        editText.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                pressCounter--;
+//
+//                String end = editText.getText().toString();
+//                String a = end.substring(end.length()-1, end.length());
+//                String ct = text.replace(text,a);
+//                letters.setText(ct);
+//
+//                editText.setText(end.substring(0, end.length() - 1));
+//
+//                if(letters.getText().toString().equals(a))
+//                {
+//                    Log.d(TAG, "let " + letters.getText().toString() + "-" + ct);
+//                   letters.setEnabled(true);
+//                   viewParent.addView(lnew);
+//                   lnew.setText(ct);
+//                }
+//                else if(lnew.getText().toString().equals(a))  {
+//                    Log.d(TAG, "ln " + lnew.getText().toString() + "-" + ct);
+//                    viewParent.addView(lnew);
+//
+//                }
+//
+//                if(pressCounter == 0) {
+//                    editText.setText("");
+//                    editText.setEnabled(false);
+//                }
+//                //viewParent.addView(letters);
+//                Log.d(TAG, "edit " + editText.getText().toString());
+//                Log.d(TAG, "text " + letters.getText().toString());
+//                Log.d(TAG, "text1 " + lnew.getText().toString());
+//                Log.d(TAG, "char " + a);
+//                Log.d(TAG, "ct " + ct);
+//
+//            }
+//        });
 
         check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,40 +183,37 @@ public class ColourQuiz extends AppCompatActivity {
         keys = shuffleArray(keys);
         linearLayout.removeAllViews();
         editText.setText("");
-        for(String key : keys) {
+        for (String key : keys) {
             addView(linearLayout, key, editText);
         }
     }
 
-    private void doValidate(){
+    private void doValidate() {
         pressCounter = 0;
         EditText editText = findViewById(R.id.guess);
         LinearLayout linearLayout = findViewById(R.id.givenText);
 
-        if(editText.getText().toString().equals(answer)) {
+        if (editText.getText().toString().equals(answer)) {
             Toast.makeText(ColourQuiz.this, "Correct", Toast.LENGTH_SHORT).show();
             editText.setText("");
             score++;
-        }
-        else
-        {
+        } else {
             Toast.makeText(ColourQuiz.this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
         }
 
         keys = shuffleArray(keys);
         linearLayout.removeAllViews();
-        for(String key : keys){
+        for (String key : keys) {
             addView(linearLayout, key, editText);
         }
     }
 
-    public static int getScore()
-    {
+    public static int getScore() {
         return score;
     }
-    public static int getMaxscore()
-    {
+
+    public static int getMaxscore() {
         return maxscore;
     }
 }

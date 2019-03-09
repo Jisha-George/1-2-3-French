@@ -33,7 +33,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:lineSpacingExtra="6dp"
-            android:text="What is the English name for Une?"
+            android:text="What is the English name for Rouge?"
             android:textAlignment="center"
             android:textColor="#332FA2"
             android:textSize="26sp"
@@ -50,12 +50,11 @@
         android:layout_gravity="center"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/quest_bck"
         android:clickable="false"
         android:focusable="false"
         android:gravity="center"
-        android:hint=" "
         android:inputType="none"
         android:padding="10dp"
         android:textColor="#332FA2"
@@ -78,7 +77,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guess"
-        app:layout_constraintVertical_bias="0.386">
+        app:layout_constraintVertical_bias="0.183">
 
     </LinearLayout>
 
@@ -103,37 +102,35 @@
 
     <Button
         android:id="@+id/check"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="#FFFF"
+        android:background="@drawable/quest_bck"
         android:text="Check Answer"
         app:layout_constraintBottom_toTopOf="@+id/botMenu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toEndOf="@+id/reset"
         app:layout_constraintTop_toBottomOf="@+id/givenText"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.343" />
 
     <Button
         android:id="@+id/reset"
-        android:layout_width="150dp"
-        android:layout_height="41dp"
+        android:layout_width="79dp"
+        android:layout_height="51dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="216dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:background="#FFFF"
+        android:background="@drawable/quest_bck"
         android:text="Reset"
         app:layout_constraintBottom_toTopOf="@+id/botMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/check"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/givenText"
-        app:layout_constraintVertical_bias="0.528" />
+        app:layout_constraintVertical_bias="0.33" />
 
     <!--<TextView-->
     <!--android:id="@+id/textTitle"-->

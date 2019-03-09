@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/colour_theory"
         android:label="1-2-3-French"
-        android:roundIcon="@drawable/background"
+        android:roundIcon="@drawable/colour_theory"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -31,20 +31,19 @@
             android:name=".StatsPage"
             android:label="@string/title_activity_stats_page"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ColourLearn"
             android:label="@string/colour"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".NumberQuiz"
             android:label="NumberQuiz"
             android:screenOrientation="portrait" />
-
+        <activity android:name=".ColourM" />
         <activity
-            android:name=".ColourM" />
-
+            android:name=".NumberLearn"
+            android:label="NumberLearn">
+        </activity>
     </application>
 
 </manifest>

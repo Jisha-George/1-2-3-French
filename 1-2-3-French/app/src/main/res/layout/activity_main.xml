@@ -13,18 +13,14 @@
         android:layout_height="149dp"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="8dp"
-
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/colour_theory"
         android:onClick="loadColour"
-        app:layout_constraintBottom_toTopOf="@+id/colDes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.836"
-        tools:ignore="OnClick" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/colDes"
@@ -32,16 +28,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="65dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/rounded"
         android:gravity="center"
         android:text="  Learn Colours  "
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/learnNum"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/learnCol" />
 
