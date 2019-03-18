@@ -28,7 +28,6 @@ public class ColourQuiz extends AppCompatActivity {
     String answer = "RED";
     TextView textQuestion;
     public static int score = 0;
-    public static int maxscore = 5;
     Button check, reset;
 
     @Override
@@ -121,46 +120,6 @@ public class ColourQuiz extends AppCompatActivity {
                 }
             }
         });
-        // final TextView lnew = new TextView(this);
-
-//        editText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                pressCounter--;
-//
-//                String end = editText.getText().toString();
-//                String a = end.substring(end.length()-1, end.length());
-//                String ct = text.replace(text,a);
-//                letters.setText(ct);
-//
-//                editText.setText(end.substring(0, end.length() - 1));
-//
-//                if(letters.getText().toString().equals(a))
-//                {
-//                    Log.d(TAG, "let " + letters.getText().toString() + "-" + ct);
-//                   letters.setEnabled(true);
-//                   viewParent.addView(lnew);
-//                   lnew.setText(ct);
-//                }
-//                else if(lnew.getText().toString().equals(a))  {
-//                    Log.d(TAG, "ln " + lnew.getText().toString() + "-" + ct);
-//                    viewParent.addView(lnew);
-//
-//                }
-//
-//                if(pressCounter == 0) {
-//                    editText.setText("");
-//                    editText.setEnabled(false);
-//                }
-//                //viewParent.addView(letters);
-//                Log.d(TAG, "edit " + editText.getText().toString());
-//                Log.d(TAG, "text " + letters.getText().toString());
-//                Log.d(TAG, "text1 " + lnew.getText().toString());
-//                Log.d(TAG, "char " + a);
-//                Log.d(TAG, "ct " + ct);
-//
-//            }
-//        });
 
         check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,6 +156,8 @@ public class ColourQuiz extends AppCompatActivity {
             Toast.makeText(ColourQuiz.this, "Correct", Toast.LENGTH_SHORT).show();
             editText.setText("");
             score++;
+            Intent intent = new Intent(ColourQuiz.this, cQuiz2.class);
+            startActivity(intent);
         } else {
             Toast.makeText(ColourQuiz.this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
@@ -210,10 +171,8 @@ public class ColourQuiz extends AppCompatActivity {
     }
 
     public static int getScore() {
+        score++;
         return score;
     }
 
-    public static int getMaxscore() {
-        return maxscore;
-    }
 }

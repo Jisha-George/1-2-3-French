@@ -20,14 +20,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Random;
 
-public class NumberQuiz extends AppCompatActivity {
+public class nQuiz2 extends AppCompatActivity {
 
     private int pressCounter = 0;
     //private int maxPressCounter = 3;
     private String[] keys = {"E","T","W","O","N","U"};
     String answer = "ONE";
     TextView textQuestion;
-    public static int score = 0;
+    public static int score = NumberQuiz.getScore();
+    public static int maxscore = 2;
     Button check, reset;
     private String TAG;
     //String text = keys.toString();
@@ -56,17 +57,17 @@ public class NumberQuiz extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.learn_id:
-                        Intent intent = new Intent(NumberQuiz.this, MainActivity.class);
+                        Intent intent = new Intent(nQuiz2.this, MainActivity.class);
                         startActivity(intent);
                         break;
 
                     case R.id.quiz_id:
-                        Intent intent1 = new Intent(NumberQuiz.this, QuizPage.class);
+                        Intent intent1 = new Intent(nQuiz2.this, QuizPage.class);
                         startActivity(intent1);
                         break;
 
                     case R.id.stats_id:
-                        Intent intent2 = new Intent(NumberQuiz.this, StatsPage.class);
+                        Intent intent2 = new Intent(nQuiz2.this, StatsPage.class);
                         startActivity(intent2);
                         break;
                 }
@@ -157,13 +158,13 @@ public class NumberQuiz extends AppCompatActivity {
         LinearLayout linearLayout = findViewById(R.id.givenText);
 
         if(editText.getText().toString().equals(answer)) {
-            Toast.makeText(NumberQuiz.this, "Correct", Toast.LENGTH_SHORT).show();
+            Toast.makeText(nQuiz2.this, "Correct", Toast.LENGTH_SHORT).show();
             editText.setText("");
             score++;
         }
         else
         {
-            Toast.makeText(NumberQuiz.this, "Wrong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(nQuiz2.this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
         }
 
@@ -177,5 +178,9 @@ public class NumberQuiz extends AppCompatActivity {
     public static int getScore()
     {
         return score;
+    }
+    public static int getMaxscore()
+    {
+        return maxscore;
     }
 }

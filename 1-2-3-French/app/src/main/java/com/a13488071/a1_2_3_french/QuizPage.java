@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
-
 public class QuizPage extends AppCompatActivity {
 
     ProgressBar progC, progN, progCM;
@@ -28,11 +27,11 @@ public class QuizPage extends AppCompatActivity {
         cmQuiz = findViewById(R.id.cmBut);
 
         progC = findViewById(R.id.cProg);
-        progC.setMax(ColourQuiz.getMaxscore());
+        progC.setMax(cQuiz3.getMaxscore());
         progC.setProgress(0);
 
         progN = findViewById(R.id.nProg);
-        progN.setMax(NumberQuiz.getMaxscore());
+        progN.setMax(nQuiz2.getMaxscore());
         progN.setProgress(0);
 
         progCM = findViewById(R.id.cmProg);
@@ -67,26 +66,20 @@ public class QuizPage extends AppCompatActivity {
             }
         });
 
-        progC.setProgress(ColourQuiz.getScore());
+        progC.setProgress(cQuiz3.getScore());
 
-        if(progC.getProgress() == progC.getMax())
-        {
-            cQuiz.setEnabled(false);
-        }
+//        if(progC.getProgress() == progC.getMax())
+//        {
+//            cQuiz.setEnabled(false);
+//        }
 
         progN.setProgress(NumberQuiz.getScore());
 
-        if(progN.getProgress() == progN.getMax())
-        {
-            nQuiz.setEnabled(false);
-        }
-
-      //  progCM.setProgress(ColourM.getScore());
-
-//        if(progCM.getProgress() == progCM.getMax())
+//        if(progN.getProgress() == progN.getMax())
 //        {
-//            cmQuiz.setEnabled(false);
+//            nQuiz.setEnabled(false);
 //        }
+
     }
 
 
@@ -101,14 +94,16 @@ public class QuizPage extends AppCompatActivity {
         Intent intent1 = new Intent(this, NumberQuiz.class);
         startActivity(intent1);
     }
-    public void loadCM(View view)
-    {
-        Intent intent2 = new Intent(this, ColourM.class);
-        startActivity(intent2);
-    }
-    public void loadNM(View view)
-    {
-        Intent intent3 = new Intent(this, ColourM.class);
-        startActivity(intent3);
-    }
+
+
+//    public void loadCM(View view)
+//    {
+//        Intent intent2 = new Intent(this, ColourM.class);
+//        startActivity(intent2);
+//    }
+//    public void loadNM(View view)
+//    {
+//        Intent intent3 = new Intent(this, ColourM.class);
+//        startActivity(intent3);
+//    }
 }

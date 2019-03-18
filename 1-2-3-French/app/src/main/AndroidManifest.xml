@@ -42,8 +42,10 @@
         <activity android:name=".ColourM" />
         <activity
             android:name=".NumberLearn"
-            android:label="NumberLearn">
-        </activity>
+            android:label="NumberLearn" />
+        <activity android:name=".cQuiz2" />
+        <activity android:name=".cQuiz3" />
+        <activity android:name=".nQuiz2"></activity>
     </application>
 
 </manifest>
