@@ -34,7 +34,6 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/num_round"
         android:contentDescription="@string/quiz"
-        android:onClick="loadNM"
 
         app:layout_constraintBottom_toTopOf="@+id/nmProg"
         app:layout_constraintEnd_toEndOf="@+id/nmProg"

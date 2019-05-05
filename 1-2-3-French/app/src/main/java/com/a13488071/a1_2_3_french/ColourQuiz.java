@@ -89,7 +89,7 @@ public class ColourQuiz extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        linearLayoutParams.rightMargin = 5;
+        linearLayoutParams.rightMargin = 20;
 
         final TextView letters = new TextView(this);
         letters.setLayoutParams(linearLayoutParams);

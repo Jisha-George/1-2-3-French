@@ -25,9 +25,8 @@ public class cQuiz2 extends AppCompatActivity {
 
 
         private int pressCounter = 0;
-        //private int maxPressCounter = 3;
         private String[] keys = {"E", "L", "P", "B", "N", "U"};
-        String answer = "BLUE";
+        String answer = "BLEU";
         TextView textQuestion;
         public static int score = ColourQuiz.getScore();
         Button check, reset;
@@ -69,7 +68,6 @@ public class cQuiz2 extends AppCompatActivity {
                             startActivity(intent2);
                             break;
                     }
-
                     return false;
                 }
             });
@@ -91,7 +89,7 @@ public class cQuiz2 extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            linearLayoutParams.rightMargin = 5;
+            linearLayoutParams.rightMargin = 20;
 
             final TextView letters = new TextView(this);
             letters.setLayoutParams(linearLayoutParams);
@@ -117,12 +115,10 @@ public class cQuiz2 extends AppCompatActivity {
                         if (pressCounter == 0) {
                             editText.setText("");
                         }
-
                         Log.d("", "" + letters.getText().toString());
                     }
                 }
             });
-
             check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -176,5 +172,4 @@ public class cQuiz2 extends AppCompatActivity {
             score++;
             return score;
         }
-
 }
