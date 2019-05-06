@@ -31,8 +31,6 @@ public class NumberQuiz extends AppCompatActivity {
     public static int score = 0;
     Button check, reset;
     private String TAG;
-    //String text = keys.toString();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +92,7 @@ public class NumberQuiz extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        linearLayoutParams.setMargins(5,0,5,0);
+        linearLayoutParams.setMargins(10,0,10,0);
 
         final TextView letters = new TextView(this);
         letters.setLayoutParams(linearLayoutParams);
@@ -105,7 +103,7 @@ public class NumberQuiz extends AppCompatActivity {
         letters.setClickable(true);
         letters.setFocusable(true);
         letters.setTextSize(30);
-        letters.setPadding(15,15,15,15);
+        letters.setPadding(25,15,25,15);
         viewParent.addView(letters);
         textQuestion = findViewById(R.id.textQuestion);
 
