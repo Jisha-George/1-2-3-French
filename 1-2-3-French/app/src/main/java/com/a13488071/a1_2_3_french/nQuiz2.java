@@ -24,20 +24,18 @@ public class nQuiz2 extends AppCompatActivity {
 
     private int pressCounter = 0;
     //private int maxPressCounter = 3;
-    private String[] keys = {"E","T","W","O","N","U"};
-    String answer = "ONE";
+    private String[] keys = {"C","E","V","I","Q","N"};
+    String answer = "CINQ";
     TextView textQuestion;
     public static int score = NumberQuiz.getScore();
     public static int maxscore = 2;
     Button check, reset;
     private String TAG;
-    //String text = keys.toString();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_number_quiz);
+        setContentView(R.layout.activity_n_quiz2);
 
         check = findViewById(R.id.check);
         reset = findViewById(R.id.reset);
@@ -94,24 +92,26 @@ public class nQuiz2 extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        linearLayoutParams.rightMargin = 5;
+
+        linearLayoutParams.setMargins(5,0,5,0);
 
         final TextView letters = new TextView(this);
         letters.setLayoutParams(linearLayoutParams);
-        letters.setBackground(this.getResources().getDrawable(R.drawable.quest_bck));
+        letters.setBackground(this.getResources().getDrawable(R.drawable.rounded_button));
         letters.setTextColor(this.getResources().getColor(R.color.colorAccent));
-        letters.setGravity(Gravity.CENTER_HORIZONTAL);
+        letters.setGravity(Gravity.CENTER);
         letters.setText(text);
         letters.setClickable(true);
         letters.setFocusable(true);
-        letters.setTextSize(32);
+        letters.setTextSize(30);
+        letters.setPadding(15,15,15,15);
         viewParent.addView(letters);
         textQuestion = findViewById(R.id.textQuestion);
 
         letters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pressCounter <= 7){
+                if(pressCounter <= 100){
                     editText.setText(editText.getText().toString().concat(letters.getText().toString()));
                     letters.setVisibility(View.INVISIBLE);
 
@@ -120,8 +120,6 @@ public class nQuiz2 extends AppCompatActivity {
                     if(pressCounter == 0) {
                         editText.setText("");
                     }
-
-                    Log.d("", "" + letters.getText().toString());
                 }
             }
         });
@@ -161,6 +159,8 @@ public class nQuiz2 extends AppCompatActivity {
             Toast.makeText(nQuiz2.this, "Correct", Toast.LENGTH_SHORT).show();
             editText.setText("");
             score++;
+            Intent intent = new Intent(nQuiz2.this, QuizPage.class);
+            startActivity(intent);
         }
         else
         {

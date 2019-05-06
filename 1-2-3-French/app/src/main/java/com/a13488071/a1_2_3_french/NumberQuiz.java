@@ -2,6 +2,7 @@ package com.a13488071.a1_2_3_french;
 
 //https://www.youtube.com/watch?v=3gSIJTHiAvI&list=PLaoF-xhnnrRU7DSfUMP8PGWJf-1UYBQZv&index=1
 //https://stackoverflow.com/questions/40938426/progress-bar-on-correct-answers
+//https://www.youtube.com/watch?v=p7BVdP0ljWo
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -93,24 +94,25 @@ public class NumberQuiz extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        linearLayoutParams.rightMargin = 5;
+        linearLayoutParams.setMargins(5,0,5,0);
 
         final TextView letters = new TextView(this);
         letters.setLayoutParams(linearLayoutParams);
-        letters.setBackground(this.getResources().getDrawable(R.drawable.quest_bck));
+        letters.setBackground(this.getResources().getDrawable(R.drawable.rounded_button));
         letters.setTextColor(this.getResources().getColor(R.color.colorAccent));
-        letters.setGravity(Gravity.CENTER_HORIZONTAL);
+        letters.setGravity(Gravity.CENTER);
         letters.setText(text);
         letters.setClickable(true);
         letters.setFocusable(true);
-        letters.setTextSize(32);
+        letters.setTextSize(30);
+        letters.setPadding(15,15,15,15);
         viewParent.addView(letters);
         textQuestion = findViewById(R.id.textQuestion);
 
         letters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pressCounter <= 7){
+                if(pressCounter <= 100){
                     editText.setText(editText.getText().toString().concat(letters.getText().toString()));
                     letters.setVisibility(View.INVISIBLE);
 
@@ -160,6 +162,9 @@ public class NumberQuiz extends AppCompatActivity {
             Toast.makeText(NumberQuiz.this, "Correct", Toast.LENGTH_SHORT).show();
             editText.setText("");
             score++;
+            Intent intent = new Intent(NumberQuiz.this, nQuiz2.class);
+            intent.putExtra("score", score);
+            startActivity(intent);
         }
         else
         {

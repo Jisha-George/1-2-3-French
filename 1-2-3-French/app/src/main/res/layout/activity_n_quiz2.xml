@@ -4,6 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".nQuiz2">
+    tools:context=".NumberQuiz"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <RelativeLayout
+        android:id="@+id/questionLayout"
+        android:layout_width="328dp"
+        android:layout_height="102dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/quest_bck"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textQuestion"
+            android:layout_width="268dp"
+            android:layout_height="71dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="6dp"
+            android:text="What is the French name for Five?"
+            android:textAlignment="center"
+            android:textColor="#332FA2"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/guess"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/quest_bck"
+        android:clickable="false"
+        android:focusable="false"
+        android:gravity="center"
+        android:inputType="none"
+        android:padding="10dp"
+        android:textColor="#332FA2"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionLayout" />
+
+    <LinearLayout
+        android:id="@+id/givenText"
+        android:layout_width="369dp"
+        android:layout_height="102dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/botMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guess"
+        app:layout_constraintVertical_bias="0.208">
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/botMenu"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottomNavigation_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/navigation_menu" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/quest_bck"
+        android:text="Check Answer"
+        app:layout_constraintBottom_toTopOf="@+id/botMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toEndOf="@+id/reset"
+        app:layout_constraintTop_toBottomOf="@+id/givenText"
+        app:layout_constraintVertical_bias="0.343" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="79dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/quest_bck"
+        android:text="Reset"
+        app:layout_constraintBottom_toTopOf="@+id/botMenu"
+        app:layout_constraintEnd_toStartOf="@+id/check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/givenText"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/textTitle"-->
+    <!--android:text=""-->
+    <!--android:textSize="24sp"-->
+    <!--android:textColor="#FFF"-->
+    <!--android:layout_marginRight="28dp"-->
+    <!--android:layout_marginLeft="28dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="16dp" />-->
+    <!--android:onClick="check"-->
 
 </android.support.constraint.ConstraintLayout>

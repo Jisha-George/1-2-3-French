@@ -89,24 +89,25 @@ public class ColourQuiz extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        linearLayoutParams.rightMargin = 20;
+        linearLayoutParams.setMargins(5,0,5,0);
 
         final TextView letters = new TextView(this);
         letters.setLayoutParams(linearLayoutParams);
-        letters.setBackground(this.getResources().getDrawable(R.drawable.quest_bck));
+        letters.setBackground(this.getResources().getDrawable(R.drawable.rounded_button));
         letters.setTextColor(this.getResources().getColor(R.color.colorAccent));
         letters.setGravity(Gravity.CENTER);
         letters.setText(text);
         letters.setClickable(true);
         letters.setFocusable(true);
-        letters.setTextSize(32);
+        letters.setTextSize(30);
+        letters.setPadding(15,15,15,15);
         viewParent.addView(letters);
         textQuestion = findViewById(R.id.textQuestion);
 
         letters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pressCounter <= 7) {
+                if(pressCounter <= 100){
                     editText.setText(editText.getText().toString().concat(letters.getText().toString()));
                     letters.setVisibility(View.INVISIBLE);
 
@@ -174,5 +175,4 @@ public class ColourQuiz extends AppCompatActivity {
         score++;
         return score;
     }
-
 }

@@ -3,25 +3,19 @@ package com.a13488071.a1_2_3_french;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.GestureDetectorCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 
 public class ColourLearn extends AppCompatActivity {
-
-    private GestureDetectorCompat gestureObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_colour_learn);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation_id);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation_id);
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
@@ -45,22 +39,8 @@ public class ColourLearn extends AppCompatActivity {
                         startActivity(intent2);
                         break;
                 }
-
-                return true;
+            return true;
             }
         });
-
-        gestureObject = new GestureDetectorCompat(this, new LearnGesture());
-
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event){
-        this.gestureObject.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
-
-    class LearnGesture extends GestureDetector.SimpleOnGestureListener{
-
     }
 }

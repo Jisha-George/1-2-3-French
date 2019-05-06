@@ -13,18 +13,16 @@ import android.widget.ProgressBar;
 
 public class QuizPage extends AppCompatActivity {
 
-    ProgressBar progC, progN, progCM;
-    ImageButton cQuiz, nQuiz, cmQuiz;
+    ProgressBar progC, progN;
+    ImageButton cQuiz, nQuiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_page);
 
-
         cQuiz = findViewById(R.id.cBut);
         nQuiz = findViewById(R.id.nBut);
-        cmQuiz = findViewById(R.id.cmBut);
 
         progC = findViewById(R.id.cProg);
         progC.setMax(cQuiz3.getMaxscore());
@@ -34,9 +32,6 @@ public class QuizPage extends AppCompatActivity {
         progN.setMax(nQuiz2.getMaxscore());
         progN.setProgress(0);
 
-        progCM = findViewById(R.id.cmProg);
-        //progCM.setMax(ColourM.getQuest());
-        progCM.setProgress(0);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation_id);
         Menu menu = bottomNavigationView.getMenu();
@@ -68,21 +63,9 @@ public class QuizPage extends AppCompatActivity {
 
         progC.setProgress(cQuiz3.getScore());
 
-//        if(progC.getProgress() == progC.getMax())
-//        {
-//            cQuiz.setEnabled(false);
-//        }
-
         progN.setProgress(NumberQuiz.getScore());
 
-//        if(progN.getProgress() == progN.getMax())
-//        {
-//            nQuiz.setEnabled(false);
-//        }
-
     }
-
-
 
     public void loadCQuiz(View view)
     {
@@ -95,15 +78,4 @@ public class QuizPage extends AppCompatActivity {
         startActivity(intent1);
     }
 
-
-//    public void loadCM(View view)
-//    {
-//        Intent intent2 = new Intent(this, ColourM.class);
-//        startActivity(intent2);
-//    }
-//    public void loadNM(View view)
-//    {
-//        Intent intent3 = new Intent(this, ColourM.class);
-//        startActivity(intent3);
-//    }
 }
