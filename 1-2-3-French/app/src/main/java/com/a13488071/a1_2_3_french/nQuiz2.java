@@ -27,7 +27,7 @@ public class nQuiz2 extends AppCompatActivity {
     private String[] keys = {"C","E","V","I","Q","N"};
     String answer = "CINQ";
     TextView textQuestion;
-    public static int score = NumberQuiz.getScore();
+    public static int score;
     public static int maxscore = 2;
     Button check, reset;
     private String TAG;
@@ -36,6 +36,9 @@ public class nQuiz2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_n_quiz2);
+
+        Bundle bundle = getIntent().getExtras();
+        score = bundle.getInt("score");
 
         check = findViewById(R.id.check);
         reset = findViewById(R.id.reset);
@@ -93,7 +96,7 @@ public class nQuiz2 extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
 
-        linearLayoutParams.setMargins(5,0,5,0);
+        linearLayoutParams.setMargins(10,0,10,0);
 
         final TextView letters = new TextView(this);
         letters.setLayoutParams(linearLayoutParams);
@@ -104,7 +107,7 @@ public class nQuiz2 extends AppCompatActivity {
         letters.setClickable(true);
         letters.setFocusable(true);
         letters.setTextSize(30);
-        letters.setPadding(15,15,15,15);
+        letters.setPadding(25,15,25,15);
         viewParent.addView(letters);
         textQuestion = findViewById(R.id.textQuestion);
 

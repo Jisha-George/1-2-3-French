@@ -159,7 +159,7 @@ public class NumberQuiz extends AppCompatActivity {
         if(editText.getText().toString().equals(answer)) {
             Toast.makeText(NumberQuiz.this, "Correct", Toast.LENGTH_SHORT).show();
             editText.setText("");
-            score++;
+            score = 1;
             Intent intent = new Intent(NumberQuiz.this, nQuiz2.class);
             intent.putExtra("score", score);
             startActivity(intent);
@@ -177,8 +177,9 @@ public class NumberQuiz extends AppCompatActivity {
         }
     }
 
-    public static int getScore()
-    {
-        return score;
-    }
+//    public static int getScore()
+//    {
+//
+//        return score;
+//    }
 }

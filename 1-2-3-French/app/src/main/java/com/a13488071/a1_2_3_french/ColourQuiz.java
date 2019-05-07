@@ -89,7 +89,7 @@ public class ColourQuiz extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        linearLayoutParams.setMargins(5,0,5,0);
+        linearLayoutParams.setMargins(10,0,10,0);
 
         final TextView letters = new TextView(this);
         letters.setLayoutParams(linearLayoutParams);
@@ -100,7 +100,7 @@ public class ColourQuiz extends AppCompatActivity {
         letters.setClickable(true);
         letters.setFocusable(true);
         letters.setTextSize(30);
-        letters.setPadding(15,15,15,15);
+        letters.setPadding(25,15,25,15);
         viewParent.addView(letters);
         textQuestion = findViewById(R.id.textQuestion);
 
@@ -156,8 +156,9 @@ public class ColourQuiz extends AppCompatActivity {
         if (editText.getText().toString().equals(answer)) {
             Toast.makeText(ColourQuiz.this, "Correct", Toast.LENGTH_SHORT).show();
             editText.setText("");
-            score++;
+            score = 1;
             Intent intent = new Intent(ColourQuiz.this, cQuiz2.class);
+            intent.putExtra("score", score);
             startActivity(intent);
         } else {
             Toast.makeText(ColourQuiz.this, "Wrong", Toast.LENGTH_SHORT).show();

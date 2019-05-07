@@ -1,10 +1,12 @@
 package com.a13488071.a1_2_3_french;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.MenuItem;
@@ -13,8 +15,9 @@ import android.widget.ProgressBar;
 
 public class QuizPage extends AppCompatActivity {
 
-    ProgressBar progC, progN;
+    public static ProgressBar progC, progN;
     ImageButton cQuiz, nQuiz;
+    public static int colour, number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,6 @@ public class QuizPage extends AppCompatActivity {
         progN.setMax(nQuiz2.getMaxscore());
         progN.setProgress(0);
 
-
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation_id);
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(1);
@@ -48,7 +50,8 @@ public class QuizPage extends AppCompatActivity {
                         break;
 
                     case R.id.quiz_id:
-
+                        finish();
+                        startActivity(getIntent());
                         break;
 
                     case R.id.stats_id:
@@ -61,10 +64,29 @@ public class QuizPage extends AppCompatActivity {
             }
         });
 
-        progC.setProgress(cQuiz3.getScore());
+        if (cQuiz3.getScore() > 0) {
+            progC.setProgress(cQuiz3.getScore());
+        }
+        else
+        {
+            progC.setProgress(cQuiz2.getScore());
+        }
 
-        progN.setProgress(NumberQuiz.getScore());
+        progN.setProgress(nQuiz2.getScore());
+        Log.d("HERE", "--" + progC.getProgress());
 
+        colour = progC.getProgress();
+        number = progN.getProgress();
+
+        SharedPreferences preferenceC = getSharedPreferences("PREFC", 0);
+        SharedPreferences.Editor editorC = preferenceC.edit();
+        editorC.putInt("colourScore", colour);
+        editorC.apply();
+
+        SharedPreferences preferenceN = getSharedPreferences("PREFN", 0);
+        SharedPreferences.Editor editorN = preferenceN.edit();
+        editorN.putInt("numberScore", number);
+        editorN.apply();
     }
 
     public void loadCQuiz(View view)
@@ -78,4 +100,10 @@ public class QuizPage extends AppCompatActivity {
         startActivity(intent1);
     }
 
+    public static int getColour() {
+        return colour;
+    }
+    public static int getNumber() {
+        return number;
+    }
 }

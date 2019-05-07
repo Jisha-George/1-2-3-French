@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.learn_id:
-
+                        finish();
+                        startActivity(getIntent());
                         break;
 
                     case R.id.quiz_id:

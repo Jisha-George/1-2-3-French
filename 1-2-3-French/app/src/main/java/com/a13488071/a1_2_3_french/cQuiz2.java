@@ -28,13 +28,16 @@ public class cQuiz2 extends AppCompatActivity {
         private String[] keys = {"E", "L", "P", "B", "N", "U"};
         String answer = "BLEU";
         TextView textQuestion;
-        public static int score = ColourQuiz.getScore();
+        public static int score;
         Button check, reset;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_c_quiz2);
+
+            Bundle bundle = getIntent().getExtras();
+            score = bundle.getInt("score");
 
             check = findViewById(R.id.check);
             reset = findViewById(R.id.reset);
@@ -89,7 +92,7 @@ public class cQuiz2 extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            linearLayoutParams.setMargins(5,0,5,0);
+            linearLayoutParams.setMargins(10,0,10,0);
 
             final TextView letters = new TextView(this);
             letters.setLayoutParams(linearLayoutParams);
@@ -100,7 +103,7 @@ public class cQuiz2 extends AppCompatActivity {
             letters.setClickable(true);
             letters.setFocusable(true);
             letters.setTextSize(30);
-            letters.setPadding(15,15,15,15);
+            letters.setPadding(25,15,25,15);
             viewParent.addView(letters);
             textQuestion = findViewById(R.id.textQuestion);
 
@@ -154,8 +157,9 @@ public class cQuiz2 extends AppCompatActivity {
             if (editText.getText().toString().equals(answer)) {
                 Toast.makeText(cQuiz2.this, "Correct", Toast.LENGTH_SHORT).show();
                 editText.setText("");
-                score++;
+                score = 2;
                 Intent intent = new Intent(cQuiz2.this, cQuiz3.class);
+                intent.putExtra("score", score);
                 startActivity(intent);
             } else {
                 Toast.makeText(cQuiz2.this, "Wrong", Toast.LENGTH_SHORT).show();
@@ -170,7 +174,6 @@ public class cQuiz2 extends AppCompatActivity {
         }
 
         public static int getScore() {
-            score++;
             return score;
         }
 }

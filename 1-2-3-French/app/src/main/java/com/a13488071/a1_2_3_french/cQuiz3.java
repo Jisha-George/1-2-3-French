@@ -24,7 +24,7 @@ public class cQuiz3 extends AppCompatActivity {
     private String[] keys = {"N", "L", "R", "B", "O", "W"};
     String answer = "BROWN";
     TextView textQuestion;
-    public static int score = cQuiz2.getScore();
+    public static int score;
     public static int maxscore = 3;
     Button check, reset;
 
@@ -33,9 +33,12 @@ public class cQuiz3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_c_quiz3);
 
-                check = findViewById(R.id.check);
-                reset = findViewById(R.id.reset);
-                keys = shuffleArray(keys);
+        Bundle bundle = getIntent().getExtras();
+        score = bundle.getInt("score");
+
+        check = findViewById(R.id.check);
+        reset = findViewById(R.id.reset);
+        keys = shuffleArray(keys);
 
                 for (String key : keys) {
                     addView(((LinearLayout) findViewById(R.id.givenText)), key, ((EditText) findViewById(R.id.guess)));
@@ -87,7 +90,7 @@ public class cQuiz3 extends AppCompatActivity {
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                 );
-                linearLayoutParams.setMargins(5,0,5,0);
+                linearLayoutParams.setMargins(10,0,10,0);
 
                 final TextView letters = new TextView(this);
                 letters.setLayoutParams(linearLayoutParams);
@@ -98,7 +101,7 @@ public class cQuiz3 extends AppCompatActivity {
                 letters.setClickable(true);
                 letters.setFocusable(true);
                 letters.setTextSize(30);
-                letters.setPadding(15,15,15,15);
+                letters.setPadding(25,15,25,15);
                 viewParent.addView(letters);
                 textQuestion = findViewById(R.id.textQuestion);
 
@@ -154,7 +157,7 @@ public class cQuiz3 extends AppCompatActivity {
                 if (editText.getText().toString().equals(answer)) {
                     Toast.makeText(cQuiz3.this, "Correct", Toast.LENGTH_SHORT).show();
                     editText.setText("");
-                    score++;
+                    score = 3;
                     Intent intent = new Intent(cQuiz3.this, QuizPage.class);
                     startActivity(intent);
                 } else {
