@@ -43,4 +43,9 @@ public class ColourLearn extends AppCompatActivity {
             }
         });
     }
+
+    public  void next(){
+        Intent intent = new Intent (ColourLearn.this, ColourM.class);
+        startActivity(intent);
+    }
 }
