@@ -19,14 +19,16 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class StatsPage extends AppCompatActivity {
     LineChart chart;
-    int number;
-    int colour;
+    int number, colour = 0;
+    List<Integer> statsC = new ArrayList<>();
+    List<Integer> statsN = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,9 @@ public class StatsPage extends AppCompatActivity {
         SharedPreferences preferenceN = getSharedPreferences("PREFN", 0);
         number = preferenceN.getInt("numberScore", 0);
 
-        int statsC[] = {colour};
-        int statsN[] = {number};
+        statsC.add(colour);
+        if(number >= 0){statsN.add(number);}
+        Log.d("STAT", "" + statsC);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation_id);
         Menu menu = bottomNavigationView.getMenu();
@@ -76,13 +79,13 @@ public class StatsPage extends AppCompatActivity {
         ArrayList<Entry> yNum = new ArrayList<>();
         ArrayList<Entry> yCol = new ArrayList<>();
 
-        for (int i = 0; i <= statsC.length; i++)
+        for (int i = 0; i <= statsC.size(); i++)
         {
            yCol.add(new Entry(i, colour));
             Log.d("COLOUR", "" + colour);
         }
 
-        for (int i = 0; i <= statsN.length; i++)
+        for (int i = 0; i <= statsN.size(); i++)
         {
             yNum.add(new Entry(i, number));
             Log.d("NUMBER", "" + number);

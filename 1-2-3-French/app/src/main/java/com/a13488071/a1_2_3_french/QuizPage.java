@@ -17,7 +17,7 @@ public class QuizPage extends AppCompatActivity {
 
     public static ProgressBar progC, progN;
     ImageButton cQuiz, nQuiz;
-    public static int colour, number;
+    public static int colour, number =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
